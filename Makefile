@@ -2,7 +2,7 @@
 # M.J. Pomraning <mjp@pilcrow.madison.wi.us>
 # 08 Dec 2001
 
-PREFIX = /usr/bin/
+PREFIX = /usr/
 INSTALL = install
 
 CC = gcc
@@ -18,10 +18,10 @@ doalarm: doalarm.o
 doalarm.o: doalarm.c
 	$(CC) $(CFLAGS) -c $<
 
-install: bininstall maninstall
+install: bininstall
 
 bininstall:
-	$(INSTALL) -m 0755 doalarm $(PREFIX)
+	$(INSTALL) -m 0755 doalarm $(PREFIX)/bin
 
 clean:
 	rm -f *.o core doalarm
