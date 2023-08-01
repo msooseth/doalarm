@@ -29,6 +29,7 @@
 #include <getopt.h>
 #include <stdio.h>
 #include <errno.h>
+#include <string.h>
 
 #define STR_EQ(x,y)   !strcmp((x),(y))
 
@@ -118,7 +119,7 @@ parse_options(int ac, char **av) {
 }
 
 static int
-rlim_cpu(int s) {
+rlim_cpu(unsigned long s) {
   struct rlimit rl;
 
   if (getrlimit(RLIMIT_CPU, &rl) == -1)
@@ -146,14 +147,15 @@ set_timer(int s, int which, int recurring) {
 int
 main(int argc, char **argv) {
   extern int errno;
-  int i, seconds;
+  int i;
+  unsigned long seconds;
   char * endptr;
   char **newargv;
 
   i = parse_options(argc, argv);
 
   errno = 0;
-  seconds = (unsigned int) strtoul(argv[i], &endptr, 10);
+  seconds = (unsigned long) strtoul(argv[i], &endptr, 10);
   if (errno || &endptr[0] == argv[i])
     usage("Invalid seconds parameter\n");
 

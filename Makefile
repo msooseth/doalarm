@@ -6,7 +6,7 @@ PREFIX = /usr
 INSTALL = /usr/bin/install
 
 CC = gcc
-CFLAGS = -O2 -Wall
+CFLAGS = -O2 -Wall -Wextra
 
 LD = gcc
 LDFLAGS = -s
