@@ -3,7 +3,7 @@
 # 08 Dec 2001
 
 PREFIX = /usr
-INSTALL = /usr/bin/install
+INSTALL = install
 
 CC = gcc
 CFLAGS = -O2 -Wall -Wextra
