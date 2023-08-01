@@ -66,7 +66,7 @@ static struct option longopts[] = {
 static void
 usage(const char * msg) {
   if (msg) {
-    fprintf(stderr, msg);
+    fprintf(stderr, "%s", msg);
   }
   fprintf(msg ? stderr : stdout, USAGE_STR);
   exit(msg ? 1 : 0);
